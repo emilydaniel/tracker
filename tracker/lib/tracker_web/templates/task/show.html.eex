@@ -8,8 +8,13 @@
   </li>
 
   <li>
-    <strong>Descr:</strong>
+    <strong>Description:</strong>
     <%= @task.descr %>
+  </li>
+
+  <li>
+    <strong>User:</strong>
+    <%= @task.user.name %>
   </li>
 
   <li>

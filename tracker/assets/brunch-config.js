@@ -20,7 +20,7 @@ exports.config = {
       // }
     },
     stylesheets: {
-      joinTo: "css/app.scss"
+      joinTo: "css/app.css"
     },
     templates: {
       joinTo: "js/app.js"
@@ -47,7 +47,7 @@ exports.config = {
     babel: {
       // Do not use ES6 compiler in vendor code
       ignore: [/vendor/]
-    }
+    },
     sass: {
       options: {
         includePaths: ["node_modules/bootstrap/scss"],
@@ -63,9 +63,11 @@ exports.config = {
   },
 
   npm: {
-    enabled: true
-    globals: {
-      $: 'jquery'
+    enabled: true,
+    npm: {
+      globals: {
+        $: 'jquery'
+      }
     }
   }
 };
