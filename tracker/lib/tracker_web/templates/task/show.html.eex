@@ -18,7 +18,7 @@
   </li>
 
   <li>
-    <strong>Time spent:</strong>
+    <strong>Time spent (min):</strong>
     <%= @task.time_spent %>
   </li>
 
@@ -30,4 +30,4 @@
 </ul>
 
 <span><%= link "Edit", to: task_path(@conn, :edit, @task) %></span>
-<span><%= link "Back", to: task_path(@conn, :index) %></span>
+<span><%= link "Back", to: page_path(@conn, :taskview) %></span>

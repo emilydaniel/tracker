@@ -19,5 +19,23 @@ defmodule Tracker.TaskList.Task do
     task
     |> cast(attrs, [:title, :descr, :time_spent, :complete, :user_id])
     |> validate_required([:title, :descr, :time_spent, :complete, :user_id])
+    |> validate_fifteen_min(:time_spent)
+  end
+
+  #adapted from Vikram Ramakrishnan's examples in the post
+  #https://medium.com/@QuantLayer/more-custom-validations-for-ecto-changesets-17f3641be2a0
+  def validate_fifteen_min(changeset, time_spent) do
+    case changeset.valid? do
+      true ->
+        ts = get_field(changeset, time_spent)
+        case rem(ts, 15) do
+          0 ->
+            changeset
+          _ ->
+            add_error(changeset, :time_spent, "Must be in 15 min increments.")
+        end
+      _ ->
+        changeset 
+    end
   end
 end

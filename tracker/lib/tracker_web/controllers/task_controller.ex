@@ -55,6 +55,6 @@ defmodule TrackerWeb.TaskController do
 
     conn
     |> put_flash(:info, "Task deleted successfully.")
-    |> redirect(to: task_path(conn, :index))
+    |> redirect(to: page_path(conn, :taskview))
   end
 end

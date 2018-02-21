@@ -3,11 +3,17 @@
     <h1>Log In</h1>
     <%= form_tag("/session", method: :task) do %>
       <div class="form-group">
-        Email
-        <input type="email" name="email" placeholder="user@example.com">
+        <p>
+          Name
+          <input type="name" name="name" placeholder="Jane">
+        </p>
+        <p>
+          Email
+          <input type="email" name="email" placeholder="user@example.com">
+        </p>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary">Log In</button>
+        <button class="btn btn-default">Log In</button>
         <%= link "Register", to: user_path(@conn, :new) %>
       </div>
     <% end %>
