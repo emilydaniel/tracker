@@ -15,7 +15,15 @@
     <div class="container">
 
       <div class="row">
-        <div class="col-3 offset-9">
+        <%= if @current_user do %>
+          <div class="col-3">
+            <span><%= link "Your Tasks", to: page_path(@conn, :taskview) %></span>
+          </div>
+          <div class="col-3">
+            <span><%= link "All Tasks", to: task_path(@conn, :index) %></span>
+          </div>
+        <% end %>
+        <div class="col-3">
           <%= if @current_user do %>
             <p>
               Hello: <%= @current_user.name %> | 

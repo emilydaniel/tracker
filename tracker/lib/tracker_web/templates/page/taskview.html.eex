@@ -1,4 +1,4 @@
-<h1>All Tasks</h1>
+<h1>Your Tasks</h1>
 
 <%= if @current_user do %>
   <div class="row">
