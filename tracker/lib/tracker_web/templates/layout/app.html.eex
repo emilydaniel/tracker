@@ -16,25 +16,27 @@
 
       <div class="row">
         <%= if @current_user do %>
-          <div class="col-3">
-            <span><%= link "Your Tasks", to: page_path(@conn, :taskview) %></span>
+          <div class="col-4 text-left">
+            <p><%= link "Your Tasks", to: page_path(@conn, :taskview) %> |
+               <%= link "All Tasks", to: task_path(@conn, :index) %></p>
           </div>
-          <div class="col-3">
-            <span><%= link "All Tasks", to: task_path(@conn, :index) %></span>
+          <div class="col-4 text-center">
+            <span><%= link "All Users", to: user_path(@conn, :index) %></span>
           </div>
-        <% end %>
-        <div class="col-3">
-          <%= if @current_user do %>
+          <div class="col-4 text-right">
             <p>
-              Hello: <%= @current_user.name %> | 
+              <%= @current_user.name %> |
               <%= link "Log Out", to: "/session", method: :delete %>
             </p>
-          <% else %>
+          </div>
+        <% else %>
+          <div class="col-3 offset-9">
             <p>
               Not logged in. | 
-              <%= link "Log In", to: "/"%> </p>
-          <% end %>
-        </div>
+              <%= link "Log In", to: "/" %>
+            </p>
+          </div>
+        <% end %>
       </div>
 
       <%= if get_flash(@conn, :info) do %>
